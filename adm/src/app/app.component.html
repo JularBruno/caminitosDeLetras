@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar mat-list-item><img src="assets/LogoDisfren.png" class="img-fluid"></mat-toolbar>
+        <mat-nav-list [hidden]="isLoggedIn">
+            <a mat-list-item [routerLink]="['/users']" routerLinkActive="router-link-active">Usuarios</a>
+            <a mat-list-item [routerLink]="['/products']" routerLinkActive="router-link-active">Productos</a>
+            <a mat-list-item [routerLink]="['/buys']" routerLinkActive="router-link-active">Compras</a>
+            <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="menubar">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> Disfren v1.0
+
+        </mat-toolbar>
+        <!--The content below is only a placeholder and can be replaced.-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

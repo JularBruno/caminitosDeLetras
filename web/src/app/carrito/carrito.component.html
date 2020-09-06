@@ -1,0 +1,164 @@
+<div class="container">
+    <p>&nbsp;</p>
+    <p *ngIf="isMobileResolution == false">&nbsp;</p>
+
+    <h2 style="color: gray;">Carrito</h2>
+
+    <div class="row bg-secondary" style="padding: 16px;" *ngIf="isMobileResolution == false">
+        <div class="col-sm-6">
+            <ul class="list-group" *ngFor="let item of list">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{item.product.name}}
+                    <br> $ {{item.product.price}}
+                    <span class="badge badge-primary badge-pill">
+                        {{item.amount}}
+                    </span>
+                    <span class="badge badge-pill" style="color: red;" (click)="removeItem(item.product.id)">X</span>
+                </li> 
+            </ul>
+            <h3 *ngIf="list.length == 0">No tiene productos en su carrito</h3>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            <h3 style="color: gray;">Datos personales</h3>
+            <form [formGroup]="formObject" (ngSubmit)="goToCongratsBuy()"> 
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Email</label>
+                    <!-- <input type="text" class="form-control " id="user" [(ngModel)]="user"
+                        [ngModelOptions]="{standalone: true}" placeholder="Ingrese su mail"> -->
+                    <input type="text" class="form-control" id="user" disabled
+                    formControlName="user" placeholder="Ingrese su mail">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Nombre completo</label>
+                    <!-- <input type="text" class="form-control" id="name" [(ngModel)]="name"
+                        [ngModelOptions]="{standalone: true}" placeholder="Ingrese su nombre y apellido"> -->
+                    <input type="text" class="form-control" id="name" disabled
+                    formControlName="name" placeholder="Ingrese su nombre y apellido">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Cuit</label>
+                    <!-- <input type="text" class="form-control " id="cuit" [(ngModel)]="cuit"
+                        [ngModelOptions]="{standalone: true}" placeholder="Ingrese su CUIT"> -->
+                    <input type="text" class="form-control" id="cuit" disabled
+                    formControlName="cuit" placeholder="Ingrese su CUIT">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Teléfono</label>
+                    <!-- <input type="text" class="form-control" id="phone" [(ngModel)]="phone"
+                        [ngModelOptions]="{standalone: true}" placeholder="Ingrese su número de teléfono"> -->
+                    <input type="text" class="form-control" id="phone"  disabled
+                    formControlName="phone" placeholder="Ingrese su número de teléfono">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Razón social</label>
+                    <!-- <input type="text" class="form-control " id="social" [(ngModel)]="social"
+                        [ngModelOptions]="{standalone: true}" placeholder="Ingrese su razón social"> -->
+                    <input type="text" class="form-control" id="social" 
+                    formControlName="social" placeholder="Ingrese su razón social" disabled>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="bill" [checked]="checkBill"
+                    (change)="billChecked($event.target.checked)" >
+                    <label class="form-check-label" for="exampleCheck1">Factura A</label>
+                </div>
+                <p>&nbsp;</p>
+                <button *ngIf="userId" class="btn default-btn btn-primary btn-block"
+                style="color: white;" [disabled]="!formObject.valid || list.length == 0">
+                    <i class="fa fa-shopping-cart"></i>
+                    Comprar: ${{getTotal()}}
+                </button>
+
+                <button *ngIf="!userId" class="btn default-btn btn-block"
+                style="background-color: red;color: white;" disabled="true">
+                    <i class="fa fa-user"></i>
+                    Inicie sesión para comprar
+                </button>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+
+    </div>
+
+
+    <!-- mobile -->
+    <div class="row" style="padding: 16px;" *ngIf="isMobileResolution == true">
+
+        <div class="col-sm-12">
+            <ul class="list-group" *ngFor="let item of list">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary">
+                    {{item.product.name}}
+                    <br> $ {{item.product.price}}
+                    <span class="badge badge-primary badge-pill">
+                        {{item.amount}}
+                    </span>
+                    <span class="badge badge-pill" style="color: red;" (click)="removeItem(item.product.id)">X</span>
+                </li>
+            </ul>
+            <h3 *ngIf="list.length == 0">No tiene productos en su carrito</h3>
+        </div>
+    </div>
+
+
+<div class="row" style="padding: 16px; margin-top: 5vh;" *ngIf="isMobileResolution == true">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 bg-light">
+            <h3 style="color: gray;">Datos personales</h3>
+            <form [formGroup]="formObject" (ngSubmit)="goToCongratsBuy()">
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Email</label>
+                    <!-- <input type="text" class="form-control " id="user" [(ngModel)]="user"
+                            [ngModelOptions]="{standalone: true}" placeholder="Ingrese su mail"> -->
+                    <input type="text" class="form-control" id="user" disabled formControlName="user"
+                        placeholder="Ingrese su mail">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Nombre completo</label>
+                    <!-- <input type="text" class="form-control" id="name" [(ngModel)]="name"
+                            [ngModelOptions]="{standalone: true}" placeholder="Ingrese su nombre y apellido"> -->
+                    <input type="text" class="form-control" id="name" disabled formControlName="name"
+                        placeholder="Ingrese su nombre y apellido">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Cuit</label>
+                    <!-- <input type="text" class="form-control " id="cuit" [(ngModel)]="cuit"
+                            [ngModelOptions]="{standalone: true}" placeholder="Ingrese su CUIT"> -->
+                    <input type="text" class="form-control" id="cuit" disabled formControlName="cuit"
+                        placeholder="Ingrese su CUIT">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Teléfono</label>
+                    <!-- <input type="text" class="form-control" id="phone" [(ngModel)]="phone"
+                            [ngModelOptions]="{standalone: true}" placeholder="Ingrese su número de teléfono"> -->
+                    <input type="text" class="form-control" id="phone" disabled formControlName="phone"
+                        placeholder="Ingrese su número de teléfono">
+                </div>
+                <div class="form-group text-left">
+                    <label for="user" class="text-style">Razón social</label>
+                    <!-- <input type="text" class="form-control " id="social" [(ngModel)]="social"
+                            [ngModelOptions]="{standalone: true}" placeholder="Ingrese su razón social"> -->
+                    <input type="text" class="form-control" id="social" formControlName="social"
+                        placeholder="Ingrese su razón social" disabled>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="bill" [checked]="checkBill"
+                        (change)="billChecked($event.target.checked)">
+                    <label class="form-check-label" for="exampleCheck1">Factura A</label>
+                </div>
+                <p>&nbsp;</p>
+                <button *ngIf="userId" class="btn default-btn btn-primary btn-block" style="color: white;"
+                    [disabled]="!formObject.valid || list.length == 0">
+                    <i class="fa fa-shopping-cart"></i>
+                    Comprar: ${{getTotal()}}
+                </button>
+    
+                <button *ngIf="!userId" class="btn default-btn btn-block" style="background-color: red;color: white;"
+                    disabled="true">
+                    <i class="fa fa-user"></i>
+                    Inicie sesión para comprar
+                </button>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    
+    </div>

@@ -1,0 +1,93 @@
+<div class="container-fluid">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a [routerLink]="['/products']"><i class="fa fa-archive icon-primary"></i> Productos</a>
+        </li>
+        <li class="breadcrumb-item active"> Administrador de productos </li>
+    </ol>
+
+
+    <div class="container">
+        <form class="w-100 pt-3" [formGroup]="formObject" (ngSubmit)="logForm(formObject.value)">
+            <h3>Administrar productos</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Descripción</label>
+                        <textarea type="text" class="form-control" placeholder="Descripción" formControlName="description">
+                        </textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Marcas y modelos</label>
+                        <input type="text" class="form-control" placeholder="Marca" formControlName="brand">
+                    </div>
+                    <!-- <div class="form-group mb-3">
+                        <label>Modelo</label>
+                        <input type="text" class="form-control" placeholder="Modelo" formControlName="modelProduct">
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>Precio</label>
+                        <input type="number" class="form-control" placeholder="Precio" formControlName="price">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Código de identificación</label>
+                        <input type="text" class="form-control" placeholder="Código" formControlName="code">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Categoría</label>
+                        <select  class="form-control" formControlName="category" (change)="changeCategory($event.target.value)">
+                            <option *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+                        </select >
+                    </div>
+                </div>         
+            </div>
+            <button class="btn primary mb-4 float-right" type="button" block [disabled]="!formObject.valid" (click)="logForm(formObject.value)"><i class="fa fa-check "
+                aria-hidden="true"></i> GUARDAR
+      </button>
+        </form>
+      <div class="row mb-4 mt-4">
+            <div class="col-md-6 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        Imágen
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <img [src]="gethtmlImage()" class="img-fluid">
+                            </div>
+                            <div class="col">
+                                <angular-file-uploader [config]="afuConfigThumb" (ApiResponse)="responseImageThumb($event)">
+                                </angular-file-uploader>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4" *ngIf="thumb">
+                <div class="card">
+                    <div class="card-header">
+                        Imágenes
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4" *ngFor="let image of thumb">
+                                <button type="button" class="btn btn-danger btn-sm round" (click)="deleteImage(image)">
+                                    <i class="fa fa-times text-white"></i>
+                                </button>
+                                <img [src]="getAllImages(image)" onerror="this.src='assets/no-product.png';" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

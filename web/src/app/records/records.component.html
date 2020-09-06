@@ -1,0 +1,28 @@
+<div class="container">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+
+  <h2 style="color: gray;">Historial</h2>
+
+  <div class="row bg-secondary" style="padding: 16px;">
+
+    <table style="width: 100%;">
+      <tr>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <hr>
+      <tr *ngFor="let item of records">
+        <td class="boldfont">{{item.dateBuy | date: 'dd/MM/yyyy'}}</td>
+        <td>${{item.total}}</td>
+        <td class="link">
+          <a (click)="goToDetail(item.id)" class="color-a">Ver Detalle >></a>
+        </td>
+      </tr>
+    </table>
+
+
+
+  </div>
+</div>

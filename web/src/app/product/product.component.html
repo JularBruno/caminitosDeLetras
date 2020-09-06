@@ -1,0 +1,83 @@
+<div class="container">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+
+  <div class="card" style="margin-bottom: 60px;">
+
+    <div class="row justify-content-center"  style="width: 100%;">
+      <div class="col-sm-3"></div>
+      <div class="card col-sm-6 text-center bg-transparent">
+        <div class="card-body">
+          <carousel>
+            <slide *ngFor="let image of product.image">
+              <img class="card-img-top" [src]="getImageSrc(image)" onerror="this.src='assets/img/LogoDisfrenFinal-08.png'"  alt="Card image cap">
+            </slide>
+            <!-- <slide>
+              <img class="card-img-top" src="assets/img/foto6.jpg" alt="Card image cap">
+            </slide>
+            <slide>
+              <img class="card-img-top" src="assets/img/foto5.jpg" alt="Card image cap">
+            </slide>
+            <slide>
+              <img class="card-img-top" src="assets/img/foto4.jpg" alt="Card image cap">
+            </slide> -->
+          </carousel>
+
+          <div style="padding-top: 1rem;">
+            <h2>{{product.name}}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+
+      <div class="row" style="width: 100%; margin-left: 5%;">
+
+        <div class="col-sm-2"></div>
+
+        <div class="card col-sm-6 bg-secondary">
+          <div class="card-body">
+            <p>{{product.description}}</p>
+
+          </div>
+        </div>
+        <div class="card col-sm-2 text-center bg-secondary">
+          <div class="card-body">
+            <h2 style="padding-top: 1rem;">$ {{product.price}}</h2>
+          </div>
+        </div>
+
+
+        <div class="col-sm-2"></div>
+
+
+
+      </div>
+
+      <div class="row" style="padding-bottom: 1rem; width: 100%; margin-left: 5%;">
+
+        <div class="col-sm-2"></div>
+
+        <div class="card col-sm-4 bg-secondary">
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Cantidad</span>
+              </div>
+              <input type="number" class="form-control" [(ngModel)]="cant" min="1">
+            </div>
+          </div>
+        </div>
+        <div class="card col-sm-4 text-center bg-secondary">
+          <div class="card-body">
+            <a (click)="goToCarrito()" class="btn btn-primary btn-block" style="color: white;">
+              <i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+          </div>
+        </div>
+
+
+        <div class="col-sm-2"></div>
+
+
+
+      </div>
+    </div>

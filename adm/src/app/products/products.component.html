@@ -1,0 +1,64 @@
+<div class="container p-4">
+
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <h2 class="section-title">
+                <i class="fa fa-archive icon-primary" aria-hidden="true"></i> Productos</h2>
+        </div>
+        <div class="col-sm-6 text-right">
+            <button type="button" class="btn primary ml-2" (click)="create()">
+          <i class="fa fa-plus"></i> AGREGAR PRODUCTOS</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-striped mt-4">
+            <thead class="thead-light">
+                <tr>
+                    <th>Imágen</th>
+                    <th>Código</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody *ngIf="items.length == 0">
+                <tr *ngIf="loading" class="text-center">
+                    <td colspan="5">
+                        <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Cargando productos...
+                    </td>
+                </tr>
+                <tr *ngIf="!loading && items.length == 0" class="text-center">
+                    <td colspan="6">
+                        <span class="text-muted">
+              <i class="fa fa-close" aria-hidden="true"></i>
+            No hay productos para mostrar
+          </span>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody *ngIf="items.length != 0">
+                <tr *ngFor="let item of items">
+                    <td width="20%">
+                        <img [src]="getImage(item.image[0])" onerror="this.src='assets/no-product.png';" class="img-thumbnail" style="object-fit: cover;height: 60px;width: 60px;" alt="Card image cap">
+                    </td>
+                    <td width="20%">{{item.code}}</td>
+                    <td width="20%">{{item?.category?.name}}</td>
+                    <td width="20%">$ {{item.price}}</td>
+                    <td width="20%" class="text-right">
+                        <button type="button" class="btn primary btn-sm mr-2" (click)="edit(item)">
+                        <i class="fa fa-pencil" aria-hidden="true" ></i>
+                    </button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="remove(item)">
+                        <i class="fa fa-close" aria-hidden="true"></i>
+                    </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

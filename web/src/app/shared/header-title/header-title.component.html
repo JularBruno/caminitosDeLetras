@@ -1,0 +1,52 @@
+<div class="row title m-2" *ngIf="title == 'preaprobation'">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-3 col-md-2 text-right">
+        <i class="fa fa-check-circle faCheck"></i>
+      </div>
+      <div class="col-9 col-md-10 text-left">
+        <h2>Felicitaciones!</h2>
+        <h6>Tu póliza ha sido aprobada</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row title m-2" *ngIf="title == 'checkout'">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-3 col-md-2 text-right">
+        <i class="fa fa-trophy faTrophy"></i>
+      </div>
+      <div class="col-9 col-md-10 text-left">
+        <h2>Póliza emitida!</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row title m-2" *ngIf="title == 'policies'">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-3 col-md-2 text-left">
+        <i class="fa fa-pie-chart faCake"></i>
+      </div>
+      <div class="col-9 col-md-10 text-left">
+        <h2>Panel principal</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row title m-2" *ngIf="title == 'login'">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-3 col-md-2 text-right">
+        <i class="fa fa-user faUser"></i>
+      </div>
+      <div class="col-9 col-md-10 text-left">
+        <h2>Iniciar Sesión</h2>
+      </div>
+    </div>
+  </div>
+</div>

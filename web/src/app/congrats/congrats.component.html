@@ -1,0 +1,46 @@
+<div class="container">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+
+
+  <div class="row bg-secondary" style="padding: 5rem;">
+    <div class="col-sm-12 text-center" style="color: white;">
+      <div>
+        <h2 style="font-size: 3rem;">
+          <i class="fa fa-check"></i>
+          ¡Compra realizada!
+        </h2>
+      </div>
+
+      <div style="padding-top: 3rem;">
+        <p>Identificador de compra {{order}}</p>
+      </div>
+
+      <div style="padding-top: 3rem;">
+        <span>Verifica tu casilla de correos para más detalles</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row bg-secondary" style="padding-bottom: 5rem">
+
+    <div class="col-sm-6 text-center" style="color: white;">
+      <div (click)="goToHome()">
+        <i class="fa fa-home" style="font-size: 3rem;"></i>
+        <br>
+        <h3>
+          Página principal
+        </h3>
+      </div>
+    </div>
+    <div *ngIf="!userId" class="col-sm-6 text-center" style="color: white;">
+      <div (click)="goToLogin()">
+        <i class="fa fa-user-circle" style="font-size: 3rem;"></i>
+        <br>
+        <h3>
+          Iniciar Sesión
+        </h3>
+      </div>
+    </div>
+  </div>

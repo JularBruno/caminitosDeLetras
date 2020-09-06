@@ -1,0 +1,116 @@
+<div class="container" *ngIf="isMobileResolution == false">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <div class="row justify-content-center bg-secondary">
+    <div class="col-sm-4"></div>
+    <div class="card col-sm-4 text-center bg-transparent">
+      <div class="card-body">
+        <img src="assets/img/LogoDisfrenFinal-08.png" style="height: 8rem;">
+        <form [formGroup]="formObject" (ngSubmit)="logForm(formObject.value)" novalidate>
+          <div class="form-group text-left">
+            <label for="user" class="text-style">Usuario</label>
+            <input type="text" class="form-control " id="user" formControlName="user" placeholder="Ingrese su usuario">
+          </div>
+          <div class="form-group text-left">
+            <label for="password" class="text-style">Contraseña</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+          </div>
+          <p>&nbsp;</p>
+          <button [disabled]="!formObject.valid" class="btn default-btn btn-primary btn-block" type="submit"
+            style="color: white;">Ingresar</button>
+          <button class="btn default-btn btn-primary btn-block" type="button" style="color: white;"
+            (click)="openModal(register)">Registrate</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="isMobileResolution == true" >
+  <p>&nbsp;</p>
+  <div class="row justify-content-center bg-secondary">
+    <div class="col-sm-4"></div>
+    <div class="card col-sm-4 text-center bg-transparent">
+      <div class="card-body">
+        <img src="assets/img/LogoDisfrenFinal-08.png" style="height: 6rem;">
+        <form [formGroup]="formObject" (ngSubmit)="logForm(formObject.value)" novalidate>
+          <div class="form-group text-left">
+            <label for="user" class="text-style">Usuario</label>
+            <input type="text" class="form-control " id="user" formControlName="user" placeholder="Ingrese su usuario">
+          </div>
+          <div class="form-group text-left">
+            <label for="password" class="text-style">Contraseña</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+          </div>
+          <p>&nbsp;</p>
+          <button [disabled]="!formObject.valid" class="btn default-btn btn-primary btn-block" type="submit"
+            style="color: white;">Ingresar</button>
+          <button class="btn default-btn btn-primary btn-block" type="button" style="color: white;"
+            (click)="openModal(register)">Registrate</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
+
+<ng-template #register>
+  <div class="container">
+    <div class="row justify-content-center bg-secondary">
+      <div class="col-sm-2"></div>
+      <div class="card col-sm-8 text-center bg-transparent">
+        <div class="card-body">
+          <img src="assets/img/LogoDisfrenFinal-08.png" style="height: 8rem;">
+          <form [formGroup]="form" (ngSubmit)="registerUser(form.value)">
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Email</label>
+              <input type="text" class="form-control " id="user" formControlName="user"
+                placeholder="Ingrese su email">
+            </div>
+            <div class="form-group text-left">
+              <label for="password" class="text-style">Contraseña</label>
+              <input type="password" class="form-control" id="password" formControlName="password"
+                placeholder="Password">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Nombre y Apellido</label>
+              <input type="text" class="form-control " id="name" formControlName="name" placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Dirección</label>
+              <input type="text" class="form-control " id="address" formControlName="address"
+                placeholder="Ingrese su dirección">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Ciudad</label>
+              <input type="text" class="form-control " id="city" formControlName="city" placeholder="Ingrese su ciudad">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Teléfono</label>
+              <input type="text" class="form-control " id="phone" formControlName="phone"
+                placeholder="Ingrese su teléfono">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">CUIT</label>
+              <input type="text" class="form-control " id="cuit" formControlName="cuit" placeholder="Ingrese su CUIT">
+            </div>
+            <div class="form-group text-left">
+              <label for="user" class="text-style">Razón Social</label>
+              <input type="text" class="form-control " id="social" formControlName="social"
+                placeholder="Ingrese su Razón social">
+            </div>
+            <p>&nbsp;</p>
+            <button class="btn default-btn btn-primary btn-block" type="submit"
+              [disabled]="!form.valid"
+              style="color: white;">Registrarse</button>
+            <button class="btn default-btn btn-primary btn-block" type="button" style="color: white;"
+              (click)="back()">Volver</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</ng-template>

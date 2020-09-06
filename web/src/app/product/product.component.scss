@@ -1,0 +1,105 @@
+@import "../../assets/variables";
+
+.text-style {
+    color: $color_1;
+}
+
+
+.brand {
+    color: orange;
+}
+
+.row-align {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0rem;
+}
+
+
+.testimonios {
+  background-color: $color_2;
+  height: 25em;
+  margin-top: 6em;
+
+  .testimoniosRow {
+      height: 25em;
+  }
+}
+
+.warap {
+//   background-color: $color_1;
+    height: 25em;
+    background-color: $color_1 !important;
+    background-size: cover;
+    // background-position-x: center;
+    // background-blend-mode: no-repeat;
+    color:white;
+    text-align: center;
+  
+  .warap1 {
+    background-color: $color_4;
+    // padding: 5em;
+    // margin: 5em;
+    height: 5em;
+  }
+}
+
+
+.values-container {
+    justify-content: center;
+    align-items: center;
+    // padding: 2.5rem !important;
+    color: white;
+    background-color: $color_1;
+    text-align: center;
+
+    .value {
+        margin: 2em;
+        font-size: 5em;
+
+        .fa {
+            font-size: 5em;
+        }
+    }
+
+    .value-h2 {
+        font-size: 3em;
+    }
+
+    .value-h5 {
+        margin: 1em;
+        font-size: 2em;
+    }
+
+    .value-p {
+        font-size: 1.5em;
+        margin-top: 1em !important;
+        margin: 3em;
+    }
+
+    .vl {
+        border-left: 6px solid white;
+        height: 5em;
+        margin-left: 50%;
+        margin-top: 1em;
+
+    }
+}
+
