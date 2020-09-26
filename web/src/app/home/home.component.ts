@@ -24,10 +24,24 @@ export class HomeComponent implements OnInit {
 
   slides = [
     {image: '../../assets/img/talleristas/AMICA.png'},
+    {image: '../../assets/img/talleristas/BERENGUER.png'},
+    {image: '../../assets/img/talleristas/CENTRA.png'},
+    {image: '../../assets/img/talleristas/COSTA FEBRE.png'},
+    {image: '../../assets/img/talleristas/COTTON.png'},
+    {image: '../../assets/img/talleristas/equipo prueba 6.png'},
+    {image: '../../assets/img/talleristas/HIDALGO.png'},
     {image: '../../assets/img/talleristas/LERARIO.png'},
+    {image: '../../assets/img/talleristas/MONTELEONE.png'},
+    {image: '../../assets/img/talleristas/NELLI.png'},
+    {image: '../../assets/img/talleristas/PAGNUCCO.png'},
+    {image: '../../assets/img/talleristas/PATZER.png'},
     {image: '../../assets/img/talleristas/PAVONI.png'},
+    {image: '../../assets/img/talleristas/pesoa.png'},
+    {image: '../../assets/img/talleristas/PICCINI.png'},
+    {image: '../../assets/img/talleristas/ROSA VERA.png'},
+    {image: '../../assets/img/talleristas/ZULIAN.png'},
   ];
- 
+
 
   constructor(
     private formBuilder: FormBuilder,
