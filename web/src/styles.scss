@@ -12,6 +12,20 @@ $dark: rgba(32, 32, 32, 0.884);
 
 @import "assets/variables";
 
+.carousel {
+    margin-bottom: 7%;
+}   
+.carousel-indicators {
+    bottom: auto;
+    top: 105%;
+}
+.carousel-indicators li {
+    background-color: #666;
+}
+.carousel-indicators .active {
+    background-color: #000000;
+}
+
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -37,6 +51,7 @@ html, body {
     height: 100%;
     width: 100%;
     // position: relative;
+    overflow-x: hidden;
     h1 {
         font-family: 'Bebas Neue', cursive;
     }

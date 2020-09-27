@@ -67,3 +67,6 @@ export class HomeComponent implements OnInit {
   }
 
 }
+
+
+// trayectoria eventos capacitaciones videos  agenda cultural
