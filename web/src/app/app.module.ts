@@ -15,9 +15,9 @@ import { TopmenuComponent } from './shared/topmenu/topmenu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ToastModule } from 'ng2-toastr';
 
-import { ProgressComponent } from './shared/progress/progress.component';
+// import { ProgressComponent } from './shared/progress/progress.component';
+// import { HeaderTitleComponent } from './shared/header-title/header-title.component';
 
-import { HeaderTitleComponent } from './shared/header-title/header-title.component';
 import { NgAutonumericModule } from '@angularfy/ng-autonumeric';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LoginComponent } from './login/login.component';
@@ -53,8 +53,8 @@ const routes: Routes = [
     CongratsComponent,
     TopmenuComponent,
     FooterComponent,
-    ProgressComponent,
-    HeaderTitleComponent,
+    // ProgressComponent,
+    // HeaderTitleComponent,
     RecordsComponent,
     RecordComponent,
     AboutComponent,
